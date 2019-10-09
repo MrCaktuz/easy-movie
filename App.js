@@ -1,8 +1,12 @@
+// App.js
+
 import React from 'react';
-import Search from './components/search';
+import Navigation from './Navigation/Navigation';
+// import Search from './Components/Search';
 
 export default function App() {
   return (
-      <Search/>
+      <Navigation/>
+      // <Search/>
   );
 }

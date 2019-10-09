@@ -1,18 +1,18 @@
 // Components/FilmItem.js
 
 import React from 'react'
-import { StyleSheet, View, Text, Image } from 'react-native'
-import { getImageFromApi } from '../api/tmdb-api';
+import {StyleSheet, View, Text, Image, TouchableOpacity} from 'react-native'
+import {getImageFromApi} from '../Api/TmdbApi';
 
 export default class FilmItem extends React.Component {
 
     render() {
-        const film = this.props.film;
+        const {film, onDisplayFilmDetail} = this.props;
 
         console.log(getImageFromApi(film.poster_path));
 
         return (
-        <View style={styles.main_container}>
+        <TouchableOpacity style={styles.main_container} onPress={()=>onDisplayFilmDetail(film.id)}>
             <Image
             style={styles.image}
             source={{uri: getImageFromApi(film.poster_path)}}
@@ -24,13 +24,13 @@ export default class FilmItem extends React.Component {
             </View>
             <View style={styles.description_container}>
                 <Text style={styles.description_text} numberOfLines={6}>{film.overview}</Text>
-                {/* La propriété numberOfLines permet de couper un texte si celui-ci est trop long, il suffit de définir un nombre maximum de ligne */}
+                {/* La propriété numberOfLines p ermet de couper un texte si celui-ci est trop long, il suffit de définir un nombre maximum de ligne */}
             </View>
             <View style={styles.date_container}>
                 <Text style={styles.date_text}>{film.release_date}</Text>
             </View>
             </View>
-        </View>
+        </TouchableOpacity>
         )
     }
 }

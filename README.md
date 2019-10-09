@@ -62,3 +62,17 @@ For a better performence it is recommanded to use the [API StyleSheet](https://f
 ⚠️ Here is the [Styling Cheat Cheet](https://github.com/vhpoet/react-native-styling-cheat-sheet) of all styles we can use with React-Native. ⚠️
 
 * * *
+
+### Navigation
+
+    npm install --save react-navigation
+
+## Types :
+
+- Tab Navigator (onglets en bas de l'écran)
+- Drawner Navigator (Menu burger)
+- Stack Navigator (Vue l'une sur les autres)
+
+
+
+* * *

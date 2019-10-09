@@ -1,6 +1,6 @@
-// Helpers/filmsData.js
+// Helpers/FilmsData.js
 
-export default filmsData = [
+export default FilmsData = [
     {
        id:181808,
        vote_average:7.2,

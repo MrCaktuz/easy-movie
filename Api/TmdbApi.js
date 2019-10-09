@@ -1,4 +1,6 @@
-import {API_TOKEN} from "../helpers/token";
+// Api/TmdbApi.js
+
+import {API_TOKEN} from "../Helpers/Token";
 
 export function getFilmsFromTmdbApiWithSearchedText(text, page) {
     const url = 'https://api.themoviedb.org/3/search/movie?api_key=' + API_TOKEN + '&language=fr&query=' + text + '&page=' + page;
