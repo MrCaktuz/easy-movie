@@ -1,4 +1,4 @@
-# App Référence Fitness
+# App Easy Movie
 
 First App Référence Fitness. This read me is made to be able to remember the steps I made to setup my testing App
 
