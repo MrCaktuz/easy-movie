@@ -54,7 +54,7 @@ export default class Search extends React.Component {
     }   
 
     render() {
-        console.log("Render !!!"); 
+        console.log("Render !!!");
         return (
             <View style={styles.container}>
                 <TextInput style={styles.textInput} placeholder="Movie's title" onChangeText={(text) => this.onSearchTextInputChanged(text)} onSubmitEditing={() => this.onSearchFilms()} />
@@ -78,9 +78,9 @@ export default class Search extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  container: {flex:1, padding: 10, paddingTop: 35, backgroundColor: 'red'},
+  container: {flex:1, padding: 10, paddingTop: 35, backgroundColor: '#304448'},
   loading_container: {position: 'absolute', left: 0, right: 0, top: 100, bottom: 0, alignItems: 'center', justifyContent: 'center'},
-  textInput: {marginBottom: 10, height: 50, backgroundColor: 'white', borderColor: '#000000', borderRadius: 2, borderWidth: 1, paddingLeft: 5},
-  button: {height: 50, backgroundColor: 'red'}, 
+  textInput: {marginBottom: 10, height: 50, backgroundColor: '#546E7A', borderColor: '#263238', borderRadius: 2, borderWidth: 1, paddingLeft: 5, color: "white"},
+  button: {height: 50}, 
   flat_list: {marginTop: 10, padding: 10, backgroundColor: 'white', flex: 1},
 });
