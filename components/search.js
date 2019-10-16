@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
         flex: 1,
         padding: 10,
         paddingTop: 10,
-        backgroundColor: '#304448'
+        backgroundColor: '#304448',
     },
     loading_container: {
         position: 'absolute',
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
         top: 100,
         bottom: 0,
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
     },
     textInput: {
         marginBottom: 10,
@@ -106,15 +106,17 @@ const styles = StyleSheet.create({
         borderRadius: 2,
         borderWidth: 1,
         paddingLeft: 5,
-        color: "white"
+        color: "white",
     },
     button: {
-        height: 50
+        width: 50,
+        height: 100,
+        backgroundColor: 'red',
     },
     flat_list: {
         marginTop: 10,
         padding: 10,
         backgroundColor: 'white',
-        flex: 1
+        flex: 1,
     },
 });
