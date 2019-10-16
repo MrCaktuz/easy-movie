@@ -73,6 +73,8 @@ For a better performence it is recommanded to use the [API StyleSheet](https://f
 - Drawner Navigator (Menu burger)
 - Stack Navigator (Vue l'une sur les autres)
 
-
-
 * * *
+
+## Note to myself
+
+Keep in mind the [good practice](https://medium.com/react-native-training/best-practices-for-creating-react-native-apps-part-1-66311c746df3) please !!! 
