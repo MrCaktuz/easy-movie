@@ -14,7 +14,7 @@ import {connect} from 'react-redux';
         };
     }
 
-    handleDisplayFilmDetail(idFilm) {        
+    handleDisplayFilmDetail = (idFilm) => {        
         this.props.navigation.navigate('FilmDetail', {idFilm})
     }
 
