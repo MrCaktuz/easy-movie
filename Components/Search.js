@@ -4,8 +4,9 @@ import React from 'react';
 import {StyleSheet, Button, TextInput, View, FlatList, ActivityIndicator} from 'react-native';
 import FilmItem from './FilmItem';
 import {getFilmsFromTmdbApiWithSearchedText} from '../Api/TmdbApi';
+import {connect} from 'react-redux';
 
-export default class Search extends React.Component {
+class Search extends React.Component {
 
     constructor(props) {
         super(props)
@@ -67,6 +68,7 @@ export default class Search extends React.Component {
                 <FlatList
                     style={styles.flat_list}
                     data={this.state.films}
+                    extraData={this.props.favoritesFilm}
                     keyExtractor={(item) => item.id.toString()}
                     onEndReachedThreshold={0.5}
                     onEndReached={() => {
@@ -74,7 +76,15 @@ export default class Search extends React.Component {
                             this.handleLoanFilms()
                         }
                     }}
-                    renderItem={({item}) => <FilmItem film={item} onDisplayFilmDetail={this.handleDisplayFilmDetail} />}
+                    renderItem={({item}) => {
+                        return (
+                            <FilmItem
+                                film={item}
+                                isFavorite={this.props.favoritesFilm.findIndex((favorite) => favorite.id === item.id) !== -1}
+                                onDisplayFilmDetail={this.handleDisplayFilmDetail}
+                            />
+                        );
+                    }}
                 />
                 {this.renderLoading()}
             </View>
@@ -120,3 +130,11 @@ const styles = StyleSheet.create({
         flex: 1,
     },
 });
+
+const mapStateToProps = (state) => {
+    return {
+        favoritesFilm: state.favoritesFilm,
+    };
+};
+
+export default connect(mapStateToProps)(Search)

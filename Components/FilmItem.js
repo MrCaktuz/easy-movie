@@ -6,6 +6,17 @@ import {getImageFromApi} from '../Api/TmdbApi';
 
 export default class FilmItem extends React.Component {
 
+    renderFavotireIcon() {
+        if (this.props.isFavorite) {
+            return (
+                <Image
+                    style={styles.favorite_icon}
+                    source={require('../Img/ic_favorite.png')}
+                />
+            );
+        }
+    }
+
     render() {
         const {film, onDisplayFilmDetail} = this.props;
 
@@ -14,9 +25,10 @@ export default class FilmItem extends React.Component {
                 <Image
                     style={styles.image}
                     source={{uri: getImageFromApi(film.poster_path)}}
-                    />
+                />
                 <View style={styles.content_container}>
                 <View style={styles.header_container}>
+                    {this.renderFavotireIcon()}
                     <Text style={styles.title_text}>{film.title}</Text>
                     <Text style={styles.vote_text}>{film.vote_average}</Text>
                 </View>
@@ -77,5 +89,9 @@ const styles = StyleSheet.create({
     date_text: {
         textAlign: 'right',
         fontSize: 14
-    }
+    },
+    favorite_icon: {
+        width: 25,
+        height: 25,
+    },
 })
