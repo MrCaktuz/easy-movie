@@ -1,7 +1,7 @@
  // Components/FilmDetail.js
 
 import React from 'react';
-import {ActivityIndicator, ScrollView, StyleSheet, Image, View, Text} from 'react-native';
+import {ActivityIndicator, ScrollView, StyleSheet, TouchableOpacity, Image, View, Text} from 'react-native';
 import {getFilmDetailFromApi, getImageFromApi} from '../Api/TmdbApi';
 import moment from 'moment';
 import numeral from 'numeral';
@@ -27,11 +27,35 @@ class FilmDetail extends React.Component {
                 });
             });
     }
+ 
+    onToggleFavorite() {
+        const action = {
+            type: "TOGGLE_FAVORITE",
+            value: this.state.film,
+        };
+
+        this.props.dispatch(action);
+    }
 
     getNames(array) {
         return array.map(element => {
             return element.name;
         }).join(" / ");
+    }
+
+    renderButtonFavorite() {
+        let srcImg = require('../Img/ic_favorite_border.png');
+
+        if (this.props.favoritesFilm.findIndex(item => item.id === this.state.film.id) !== -1) {
+            srcImg = require('../Img/ic_favorite.png');
+        }
+
+        return (
+            <Image
+                source={srcImg}
+                style={styles.favorite_img}
+            />
+        );
     }
 
     renderFilm() {
@@ -45,6 +69,11 @@ class FilmDetail extends React.Component {
                         source={{uri: getImageFromApi(film.poster_path)}}
                     />
                     <Text style={styles.title}>{film.title}</Text>
+                    <TouchableOpacity
+                        style={styles.favorite_button}
+                        onPress={() => this.onToggleFavorite()}>
+                        {this.renderButtonFavorite()}
+                    </TouchableOpacity>
                     <Text style={styles.overview}>{film.overview}</Text>
                     <View style={styles.details}>
                         <Text style={styles.detail}>
@@ -132,6 +161,13 @@ const styles = StyleSheet.create({
     },
     scrollview_container: {
         flex: 1,
+    },
+    favorite_button: {
+        alignItems: 'center',
+    },
+    favorite_img: {
+        width: 40,
+        height: 40, 
     },
 });
 
